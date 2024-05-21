@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { injectUserFullname } from '../../../shared/config/config.provide';
 
 
 @Component({
@@ -20,6 +21,17 @@ import { Component } from '@angular/core';
         </ul>
       </div>
     </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <h2 class="card-title">User</h2>
+      </div>
+
+      <div class="card-body">
+        <p>{{ userFullname() }}</p>
+      </div>
+    </div>
   `,
   styles: [`
     code {
@@ -28,4 +40,5 @@ import { Component } from '@angular/core';
   `]
 })
 export class HomeComponent {
+  protected userFullname = injectUserFullname();
 }
